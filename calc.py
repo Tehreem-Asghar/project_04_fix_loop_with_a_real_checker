@@ -27,11 +27,7 @@ def apply_discount(price, discount_percent):
     Applies a percentage discount to a price.
     e.g. apply_discount(100, 20) -> 80  (20% off of 100)
     """
-    # BUG: this subtracts the raw percent number instead of the
-    # percent OF the price. It happens to give the right answer when
-    # price == 100, which is why this slipped through testing, but
-    # apply_discount(200, 20) wrongly returns 180 instead of 160.
-    return price - discount_percent
+    return price - (price * discount_percent / 100)
 
 
 def calculate_total_with_tax(price, tax_rate):
